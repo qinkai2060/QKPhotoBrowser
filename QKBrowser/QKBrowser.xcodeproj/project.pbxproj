@@ -17,6 +17,8 @@
 		304957402124310400902033 /* QKBrowserWatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3049573F2124310400902033 /* QKBrowserWatingView.m */; };
 		304957442124373F00902033 /* QKPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 304957432124373F00902033 /* QKPhotoBrowser.m */; };
 		304957472125274000902033 /* QKDemoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 304957462125274000902033 /* QKDemoCollectionCell.m */; };
+		3049574D2125343A00902033 /* QKPlayerLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3049574A2125343900902033 /* QKPlayerLayerView.m */; };
+		3049574E2125343A00902033 /* QKPlayerFlashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3049574C2125343900902033 /* QKPlayerFlashView.m */; };
 		E9E8456630946EDDDAE18FE0 /* libPods-QKBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F27F75EAEF9EE20A79C9BE /* libPods-QKBrowser.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,10 @@
 		304957432124373F00902033 /* QKPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKPhotoBrowser.m; sourceTree = "<group>"; };
 		304957452125274000902033 /* QKDemoCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QKDemoCollectionCell.h; sourceTree = "<group>"; };
 		304957462125274000902033 /* QKDemoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QKDemoCollectionCell.m; sourceTree = "<group>"; };
+		304957492125343900902033 /* QKPlayerLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPlayerLayerView.h; sourceTree = "<group>"; };
+		3049574A2125343900902033 /* QKPlayerLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPlayerLayerView.m; sourceTree = "<group>"; };
+		3049574B2125343900902033 /* QKPlayerFlashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKPlayerFlashView.h; sourceTree = "<group>"; };
+		3049574C2125343900902033 /* QKPlayerFlashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKPlayerFlashView.m; sourceTree = "<group>"; };
 		34F27F75EAEF9EE20A79C9BE /* libPods-QKBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QKBrowser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9D0B6A825B6854E5242B74 /* Pods-QKBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QKBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-QKBrowser/Pods-QKBrowser.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +108,10 @@
 				3049573F2124310400902033 /* QKBrowserWatingView.m */,
 				304957422124373F00902033 /* QKPhotoBrowser.h */,
 				304957432124373F00902033 /* QKPhotoBrowser.m */,
+				3049574B2125343900902033 /* QKPlayerFlashView.h */,
+				3049574C2125343900902033 /* QKPlayerFlashView.m */,
+				304957492125343900902033 /* QKPlayerLayerView.h */,
+				3049574A2125343900902033 /* QKPlayerLayerView.m */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -222,6 +232,8 @@
 				304957442124373F00902033 /* QKPhotoBrowser.m in Sources */,
 				304957402124310400902033 /* QKBrowserWatingView.m in Sources */,
 				304957262124217A00902033 /* AppDelegate.m in Sources */,
+				3049574E2125343A00902033 /* QKPlayerFlashView.m in Sources */,
+				3049574D2125343A00902033 /* QKPlayerLayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

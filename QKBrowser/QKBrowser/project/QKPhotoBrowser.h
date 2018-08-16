@@ -27,5 +27,6 @@
 
 @property (nonatomic, weak) id<QKPhotoBrowserDelegate> delegate;
 
+
 - (void)show;
 @end

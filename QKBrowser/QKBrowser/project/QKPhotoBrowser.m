@@ -67,6 +67,7 @@
         [_scrollView addSubview:imageView];
     }
     
+    [_scrollView.panGestureRecognizer addTarget:self action:@selector(panGestureAction:)];
     [self setupImageOfImageViewForIndex:self.currentImageIndex];
     
 }
