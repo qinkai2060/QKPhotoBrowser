@@ -48,7 +48,7 @@
 - (UIImage *)photoBrowser:(QKPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
 {
 
-    // 站位图
+    // 站位图 根据开发者情况而定
     QKDemoCollectionCell *view = (QKDemoCollectionCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
 
     return view.imageview.image;
@@ -56,7 +56,7 @@
 }
 - (NSURL *)photoBrowser:(QKPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 {
-
+    // 高清URL
     return [NSURL URLWithString:self.dataSourceArr[index]];
 }
 - (UICollectionView *)collectionView {

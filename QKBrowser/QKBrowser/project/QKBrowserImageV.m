@@ -135,7 +135,14 @@
     }];
     
 }
+- (void)eliminateScale
+{
+    [self clear];
+    _totalScale = 1.0;
+}
+
 - (void)setTotalScale:(CGFloat)totalScale {
+    // 缩放比例限制
     if ((_totalScale < 0.5 && totalScale < _totalScale) || (_totalScale > 2.0 && totalScale > _totalScale)) return; // 最大缩放 2倍,最小0.5倍
     
     [self zoomWithScale:totalScale];
@@ -144,7 +151,7 @@
     _totalScale = scale;
     
     _zoomingImageView.transform = CGAffineTransformMakeScale(scale, scale);
-    
+    // 根据判断缩小还是放大
     if (scale > 1) {
         CGFloat contentW = _zoomingImageView.frame.size.width;
         CGFloat contentH = MAX(_zoomingImageView.frame.size.height, self.frame.size.height);
@@ -185,6 +192,7 @@
 
 - (void)prepareForImageViewScaling {
     if (!_zoomingScroolView) {
+        // 初始化缩放的scrool
         _zoomingScroolView = [[UIScrollView alloc] initWithFrame:self.bounds];
         _zoomingScroolView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.95]
 ;

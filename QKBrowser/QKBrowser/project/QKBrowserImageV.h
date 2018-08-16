@@ -22,15 +22,16 @@
  是否已经加过
  */
 @property (nonatomic, assign) BOOL hasLoadedImage;
-
+// 扩展model
 @property (nonatomic, strong) id model;
 
 - (void)eliminateScale; // 清除缩放
 
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder;
-
+// 双击图片之后
 - (void)doubleTapToZommWithScale:(CGFloat)scale;
 
 - (void)clear;
+// 暂停播放器 
 - (void)stopPlayer ;
 @end

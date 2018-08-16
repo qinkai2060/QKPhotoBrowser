@@ -38,6 +38,7 @@
 }
 
 - (void)dealloc {
+    // 移除监听
     [[UIApplication sharedApplication].keyWindow removeObserver:self forKeyPath:@"frame"];
 }
 
@@ -74,6 +75,7 @@
 
 // 加载图片
 - (void)setupImageOfImageViewForIndex:(NSInteger)index {
+    // 开发者可根据自己自定义model 进行赋值 QKBrowserImageV 的model 去构建
     QKBrowserImageV *imageView = _scrollView.subviews[index];
     self.currentImageIndex = index;
     if (imageView.hasLoadedImage) return;
@@ -100,9 +102,6 @@
     }else {
         sourceView = self.sourceImagesContainerView.subviews[currentIndex];
     }
-    
-    
-    
     CGRect targetTemp = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
     
     UIImageView *tempView = [[UIImageView alloc] init];
@@ -196,7 +195,7 @@
 
 - (void)showFirstImage {
     UIView *sourceView = nil;
-    
+    // 父view 类型判断
     if ([self.sourceImagesContainerView isKindOfClass:UICollectionView.class]) {
         UICollectionView *view = (UICollectionView *)self.sourceImagesContainerView;
         NSIndexPath *path = [NSIndexPath indexPathForItem:self.currentImageIndex inSection:0];
@@ -204,13 +203,14 @@
     }else {
         sourceView = self.sourceImagesContainerView.subviews[self.currentImageIndex];
     }
+    // frame 坐标转换 将之前的view 到QKPhotoBrowser的frame上
     CGRect rect = [self.sourceImagesContainerView convertRect:sourceView.frame toView:self];
-    
+    // 获取sourceImagesContainerView 的子view的图片
     UIImageView *tempView = [[UIImageView alloc] init];
     tempView.image = [self placeholderImageForIndex:self.currentImageIndex];
     
     [self addSubview:tempView];
-    
+    // 动画坐标
     CGRect targetTemp = [_scrollView.subviews[self.currentImageIndex] bounds];
     
     tempView.frame = rect;
@@ -256,11 +256,11 @@
             [UIView animateWithDuration:0.5 animations:^{
                 imageView.transform = CGAffineTransformIdentity;
             } completion:^(BOOL finished) {
+                //当放大的图片 清除缩放
                 [imageView eliminateScale];
             }];
         }
     }
-    
     
     if (!_willDisappear) {
         _indexLabel.text = [NSString stringWithFormat:@"%d/%ld", index + 1, (long)self.imageCount];
@@ -268,16 +268,20 @@
     [self setupImageOfImageViewForIndex:index];
     
 }
+// 滚动停止
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
     int index = (scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5) / scrollView.bounds.size.width;
+     // 当停止时图片的索引与之前索引不一致 播放器停止之前播放
     if (self.scrollendIndex != index) {
         [self stop];
     }
+    // 重新赋值
     self.scrollendIndex = index;
     
     
 }
+// 停止播放
 - (void)stop{
     QKBrowserImageV *scrollendimageView = _scrollView.subviews[self.scrollendIndex];
     [scrollendimageView stopPlayer];
