@@ -39,10 +39,10 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     QKPhotoBrowser *photoBrowser = [QKPhotoBrowser new];
     photoBrowser.delegate = self;
-    photoBrowser.currentImageIndex = indexPath.item;
-    photoBrowser.scrollendIndex = indexPath.item;
-    photoBrowser.imageCount =  self.dataSourceArr.count;
-    photoBrowser.sourceImagesContainerView = collectionView;
+    photoBrowser.currentImageIndex = indexPath.item;// 当前索引
+    photoBrowser.scrollendIndex = indexPath.item; // 用于播放器索引判断如只显示图片可不赋值
+    photoBrowser.imageCount =  self.dataSourceArr.count;// 数据源
+    photoBrowser.sourceImagesContainerView = collectionView;// 父view
     [photoBrowser show];
 }
 - (UIImage *)photoBrowser:(QKPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
