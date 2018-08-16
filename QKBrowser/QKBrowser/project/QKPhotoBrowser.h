@@ -24,7 +24,8 @@
 @property (nonatomic, weak) UIView *sourceImagesContainerView;
 @property (nonatomic, assign) NSInteger currentImageIndex;
 @property (nonatomic, assign) NSInteger imageCount;
-
+@property (nonatomic, assign) NSInteger scrollendIndex;
+ 
 @property (nonatomic, weak) id<QKPhotoBrowserDelegate> delegate;
 
 

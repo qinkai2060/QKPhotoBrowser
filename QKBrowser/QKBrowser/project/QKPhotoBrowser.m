@@ -67,7 +67,7 @@
         [_scrollView addSubview:imageView];
     }
     
-    [_scrollView.panGestureRecognizer addTarget:self action:@selector(panGestureAction:)];
+//    [_scrollView.panGestureRecognizer addTarget:self action:@selector(panGestureAction:)];
     [self setupImageOfImageViewForIndex:self.currentImageIndex];
     
 }
@@ -266,8 +266,22 @@
         _indexLabel.text = [NSString stringWithFormat:@"%d/%ld", index + 1, (long)self.imageCount];
     }
     [self setupImageOfImageViewForIndex:index];
+    
 }
-
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    int index = (scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5) / scrollView.bounds.size.width;
+    if (self.scrollendIndex != index) {
+        [self stop];
+    }
+    self.scrollendIndex = index;
+    
+    
+}
+- (void)stop{
+    QKBrowserImageV *scrollendimageView = _scrollView.subviews[self.scrollendIndex];
+    [scrollendimageView stopPlayer];
+}
 
 
 @end

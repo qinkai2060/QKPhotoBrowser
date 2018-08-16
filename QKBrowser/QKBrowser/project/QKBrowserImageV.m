@@ -9,6 +9,7 @@
 #import "QKBrowserImageV.h"
 #import "QKBrowserWatingView.h"
 #import "FLAnimatedImageView+WebCache.h"
+#import "QKPlayerFlashView.h"
 @implementation QKBrowserImageV
 {
     __weak QKBrowserWatingView *_waitingView;
@@ -19,7 +20,7 @@
     UIImageView *_zoomingImageView;
     CGFloat _totalScale;
     UIButton *_btn;
-  //  WARPlayerFlashView *_player;
+    QKPlayerFlashView *_player;
 }
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -31,6 +32,8 @@
         [btn addTarget:self action:@selector(playVideoClick:) forControlEvents:UIControlEventTouchUpInside];
         btn.center = self.center;
         _btn = btn;
+        // 暂时隐藏
+        _btn.hidden = YES;
         [self addSubview:btn];
         
         // 捏合手势缩放图片
@@ -42,6 +45,17 @@
         
     }
     return self;
+}
+- (void)playVideoClick:(UIButton*)btn {
+    
+    
+
+//    _btn.hidden = [self.model.type isEqualToString:@"VIDEO"] ? NO : YES;
+//    QKPlayerFlashView *player  = [QKPlayerFlashView playerWithVideoURL:[NSURL URLWithString:pictureModel.videoId]];
+//    _player = player;
+//    [self addSubview:player];
+    
+    
 }
 - (BOOL)isScaled {
     return  1.0 != _totalScale;
@@ -161,6 +175,14 @@
         }
     }];
 }
+- (void)setModel:(id)model {
+    _model = model;
+    
+
+//    _btn.hidden = [pictureModel.type isEqualToString:@"VIDEO"] ? NO : YES;
+    
+}
+
 - (void)prepareForImageViewScaling {
     if (!_zoomingScroolView) {
         _zoomingScroolView = [[UIScrollView alloc] initWithFrame:self.bounds];
@@ -193,5 +215,10 @@
 }
 - (void)removeWaitingView {
     [_waitingView removeFromSuperview];
+}
+- (void)stopPlayer {
+    [_player stop];
+    [_player removeFromSuperview];
+    _player = nil;
 }
 @end

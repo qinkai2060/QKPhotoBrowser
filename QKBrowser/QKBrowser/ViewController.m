@@ -40,6 +40,7 @@
     QKPhotoBrowser *photoBrowser = [QKPhotoBrowser new];
     photoBrowser.delegate = self;
     photoBrowser.currentImageIndex = indexPath.item;
+    photoBrowser.scrollendIndex = indexPath.item;
     photoBrowser.imageCount =  self.dataSourceArr.count;
     photoBrowser.sourceImagesContainerView = collectionView;
     [photoBrowser show];
